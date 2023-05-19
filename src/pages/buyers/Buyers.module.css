@@ -9,11 +9,8 @@
 }
 
 .h1 {
-  margin: 2rem;
-  text-align: center;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
+  font-size: 7.594rem;
+  line-height: 8rem;
   font-weight: bold;
 }
 
@@ -27,7 +24,7 @@
 
 .home {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px;
 }
 
@@ -36,6 +33,11 @@
 }
 .content :last-child {
   margin-bottom: 0;
+}
+
+.content {
+  display: grid;
+  grid-column: span 2;
 }
 
 .button {

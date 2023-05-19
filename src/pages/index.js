@@ -1,53 +1,53 @@
-import Head from "next/head";
+import { useContext } from "react";
+import { useRouter } from "next/router";
 import styles from "./Home.module.css";
+import Ticket from "@/components/Ticket";
+import { StoreContext } from "@/contexts/buyerContext";
 
-export default function Home() {
+export default function Home({ data }) {
+  const state = useContext(StoreContext);
+  const { query } = useRouter();
+  const { basket } = state;
   return (
     <>
-      <Head>
-        <title>Find buyer | EDC</title>
-      </Head>
-      <div className="wrapper">
-        <h1 className={styles.h1}>
-          Find <span className={styles.headline}>a buyer</span> for your
-          property
-        </h1>
-        <div className={styles.content}>
-          <p className={styles.p}>
-            Here you can search after buyers for your property and sell it to
-            the potential buyer.
-          </p>
-          <form action="/buyers" method="GET" className={styles.form}>
-            <label>
-              <span className={styles.label}>Zip Code</span>
-              <input className="field" name="zipCode" required />
-            </label>
-            <label>
-              <span className={styles.label}>Price</span>
-              <input className="field" name="price" required />
-            </label>
-            <label>
-              <span className={styles.label}>Size</span>
-              <input className="field" name="size" required />
-            </label>
-            <label>
-              <span className={styles.label}>Estate type</span>
-              <select className="field select" name="estateType" required>
-                <option value="1">Villa</option>
-                <option value="2">Villalejlighed</option>
-                <option value="3">Rækkehus</option>
-                <option value="4">Ejerlejlighed</option>
-                <option value="5">Fritidshus</option>
-                <option value="6">Fritidsgrund</option>
-                <option value="7">Helårsgrund</option>
-                <option value="8">Andelsbolig</option>
-                <option value="9">Landejendom</option>
-              </select>
-            </label>
-            <button className={styles.button}>Submit</button>
-          </form>
+      <div className="hero">
+        <h1 className={styles.h1}>CAMPING</h1>
+      </div>
+      <div className="container_container">
+        <div className="container_box">
+          <div className={styles.content}>
+            <div className={styles.home}>
+              {data.map((buyer) => (
+                <Ticket key={buyer.id} {...buyer} />
+              ))}
+            </div>
+          </div>
+          <div className={styles.home}>
+            <div>
+              <div>
+                <p>Regular Festival Ticket, excluding fee</p>
+                <p>799,-</p>
+                <p>VIP Festival Ticket, excluding fee</p>
+                <p>1299,-</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  // Get data from api
+  const res = await fetch(
+    "https://sunrise-innovative-pediatrician.glitch.me/available-spots"
+  );
+  const data = await res.json();
+  // Return the data inside props
+  return {
+    props: {
+      data,
+    },
+  };
 }
