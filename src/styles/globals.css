@@ -48,3 +48,14 @@
   box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.19);
   border-radius: 8px;
 }
+
+.button {
+  padding: 1rem 2rem;
+  border: 2px solid blue;
+}
+
+.button:hover {
+  transition: 0.5s;
+  background: blue;
+  color: black;
+}

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DispatchContext } from "@/contexts/storeContext";
+import { DispatchContext } from "@/contexts/buyerContext";
 
 export default function CartItem(props) {
   const dispatch = useContext(DispatchContext);
@@ -7,7 +7,7 @@ export default function CartItem(props) {
     dispatch({
       action: "REMOVE_ONE_PRODUCT",
       payload: {
-        id: props.id,
+        area: props.area,
       },
     });
   }
@@ -15,13 +15,13 @@ export default function CartItem(props) {
     dispatch({
       action: "ADD_PRODUCT",
       payload: {
-        id: props.id,
+        area: props.area,
       },
     });
   }
   return (
     <li>
-      {props.productdisplayname}
+      {props.area}
       <div>
         <button onClick={removeOne}>[-]</button>
         {props.amount}

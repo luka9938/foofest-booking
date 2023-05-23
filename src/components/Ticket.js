@@ -7,9 +7,9 @@ export default function Ticket(props) {
     dispatch({
       action: "ADD_PRODUCT",
       payload: {
-        id: props.id,
-        price: props.price,
-        productdisplayname: props.productdisplayname,
+        area: props.area,
+        available: props.available,
+        spots: props.spots,
       },
     });
   }
@@ -18,7 +18,9 @@ export default function Ticket(props) {
       <h2 className="h2">{props.area}</h2>
       <p>{props.available} Available</p>
       <p>{props.spots} Tickets</p>
-      <button onClick={addToBasket}>Add to basket</button>
+      <button className="button" onClick={addToBasket}>
+        Add to basket
+      </button>
     </div>
   );
 }

@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { useRouter } from "next/router";
 import styles from "./Home.module.css";
 import Ticket from "@/components/Ticket";
+import Basket from "@/components/Basket";
 import { StoreContext } from "@/contexts/buyerContext";
 
 export default function Home({ data }) {
   const state = useContext(StoreContext);
   const { query } = useRouter();
-  const { basket } = state;
   return (
     <>
       <div className="hero">
@@ -18,19 +18,12 @@ export default function Home({ data }) {
           <div className={styles.content}>
             <div className={styles.home}>
               {data.map((buyer) => (
-                <Ticket key={buyer.id} {...buyer} />
+                <Ticket key={buyer.area} {...buyer} />
               ))}
             </div>
           </div>
           <div className={styles.home}>
-            <div>
-              <div>
-                <p>Regular Festival Ticket, excluding fee</p>
-                <p>799,-</p>
-                <p>VIP Festival Ticket, excluding fee</p>
-                <p>1299,-</p>
-              </div>
-            </div>
+            <Basket />
           </div>
         </div>
       </div>

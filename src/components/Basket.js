@@ -3,27 +3,68 @@ import { StoreContext, DispatchContext } from "@/contexts/buyerContext";
 import CartItem from "./CartItem";
 import Link from "next/link";
 
-function Basket() {
+function Basket(props) {
   const state = useContext(StoreContext);
   const dispatch = useContext(DispatchContext);
-  let total = 0;
-  if (state.basket) {
-    state.basket.forEach((item) => {
-      total += item.price * item.amount;
+  function removeOne(e) {
+    const ticketName =
+      e.target.parentNode.parentNode.getAttribute("ticketName");
+    const ticketPrice = parseFloat(
+      e.target.parentNode.parentNode.querySelector("p[name='ticketPrice]")
+        .textContent
+    );
+
+    dispatch({
+      action: "REMOVE_ONE_PRODUCT",
+      payload: {
+        name: ticketName,
+        price: ticketPrice,
+      },
     });
   }
-  let totalamount = 0;
-  if (state.basket) {
-    state.basket.forEach((item) => {
-      totalamount += item.amount;
+
+  function addOne(e) {
+    const ticketName =
+      e.target.parentNode.parentNode.getAttribute("ticketName");
+    const ticketPrice = parseFloat(
+      e.target.parentNode.parentNode.querySelector("p[name='ticketPrice']")
+        .textContent
+    );
+
+    dispatch({
+      action: "ADD_PRODUCT",
+      payload: {
+        name: ticketName,
+        price: ticketPrice,
+      },
     });
   }
   return (
     <div className="Basket">
       <h2>Basket</h2>
       <ul>
+        <li name="ticketName">
+          VIP Festival Ticket, excluding fee
+          <p name="ticketPrice">1299,-</p>
+          <div>
+            <button onClick={removeOne}>[-]</button>
+            {props.amount}
+            <button onClick={addOne}>[+]</button>
+          </div>
+        </li>
+        <li name="ticketName">
+          Regular Festival Ticket, excluding fee
+          <p name="ticketPrice">799,-</p>
+          <div>
+            <button onClick={removeOne}>[-]</button>
+            {props.amount}
+            <button onClick={addOne}>[+]</button>
+          </div>
+        </li>
+      </ul>
+      <ul>
         {state.basket.map((item) => {
-          return <CartItem key={item.key} {...item} />;
+          return <CartItem {...item} />;
         })}
       </ul>
       {state.basket.length > 0 ? <Link href="/checkout">Checkout</Link> : null}
