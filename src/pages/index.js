@@ -4,6 +4,7 @@ import styles from "./Home.module.css";
 import Ticket from "@/components/Ticket";
 import Tent from "@/components/Tent";
 import Basket from "@/components/Basket";
+import CampingSpot from "@/components/CampingSpot";
 import { StoreContext } from "@/contexts/basketContext";
 import { ticketTypes } from "@/data/ticketTypes";
 import { tentTypes } from "@/data/tentTypes";
@@ -30,6 +31,11 @@ export default function Home({ data }) {
                 <Tent key={tentType.id} {...tentType} />
               ))}
             </div>
+            <div className={styles.home}>
+              {data.map((camp) => (
+                <CampingSpot key={camp.area} {...camp} />
+              ))}
+            </div>
           </div>
           <div className={styles.home}>
             <div className={styles.basket}>
@@ -40,4 +46,18 @@ export default function Home({ data }) {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  // Get data from api
+  const res = await fetch(
+    "https://sunrise-innovative-pediatrician.glitch.me/available-spots"
+  );
+  const data = await res.json();
+  // Return the data inside props
+  return {
+    props: {
+      data,
+    },
+  };
 }

@@ -3,6 +3,7 @@ import { StoreContext } from "@/contexts/basketContext";
 import { ticketTypes } from "@/data/ticketTypes";
 import { tentTypes } from "@/data/tentTypes";
 import BasketCart from "./BasketCart";
+import CartCamp from "./CartCamp";
 import Link from "next/link";
 
 function Basket() {
@@ -25,6 +26,11 @@ function Basket() {
           return (
             <BasketCart key={item.id} {...tentType} amount={item.amount} />
           );
+        })}
+      </ul>
+      <ul>
+        {state.campBasket.map((item) => {
+          return <CartCamp {...item} />;
         })}
       </ul>
       <Link

@@ -3,6 +3,7 @@ import { createContext, useReducer } from "react";
 export const StoreContext = createContext();
 export const DispatchContext = createContext();
 const initialState = {
+  campBasket: [],
   ticketBasket: [],
   tentBasket: [],
   products: [],
@@ -92,6 +93,12 @@ function reducer(state, action) {
       return {
         ...state,
         tentBasket: state.tentBasket.concat(newTentItem),
+      };
+
+    case "ADD_CAMP":
+      return {
+        ...state,
+        campBasket: [action.payload],
       };
 
     default:

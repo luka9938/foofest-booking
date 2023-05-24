@@ -54,6 +54,8 @@
   padding: 1rem 2rem;
   border: 2px solid blue;
   width: fit-content;
+  align-self: center;
+  justify-self: center;
 }
 
 .button.disabled {

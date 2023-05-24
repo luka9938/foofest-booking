@@ -43,6 +43,7 @@
 }
 
 .basket {
+  position: fixed;
   display: flex;
   width: 30vw;
 }
