@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { useRouter } from "next/router";
 import styles from "./Home.module.css";
 import Ticket from "@/components/Ticket";
+import Tent from "@/components/Tent";
 import Basket from "@/components/Basket";
-import { StoreContext } from "@/contexts/buyerContext";
+import { StoreContext } from "@/contexts/basketContext";
 import { ticketTypes } from "@/data/ticketTypes";
-import Link from "next/link";
+import { tentTypes } from "@/data/tentTypes";
 
 export default function Home({ data }) {
   const state = useContext(StoreContext);
@@ -24,15 +25,11 @@ export default function Home({ data }) {
                 <Ticket key={ticketType.id} {...ticketType} />
               ))}
             </div>
-            <Link
-              href="./tents"
-              className={`button ${
-                state.basket.length === 0 ? "disabled" : ""
-              }`}
-              disabled={state.basket.length === 0}
-            >
-              Continue
-            </Link>
+            <div className={styles.home}>
+              {tentTypes.map((tentType) => (
+                <Tent key={tentType.id} {...tentType} />
+              ))}
+            </div>
           </div>
           <div className={styles.home}>
             <div className={styles.basket}>

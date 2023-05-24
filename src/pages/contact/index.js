@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "./Contact.module.css";
-import { StoreContext } from "@/contexts/buyerContext";
+import { StoreContext } from "@/contexts/basketContext";
 import { useContext, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/router";

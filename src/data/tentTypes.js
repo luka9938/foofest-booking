@@ -2,15 +2,15 @@
  * Valid estate types
  * @type {Array<{name: string, price: string, id: string}>}
  */
-export const ticketTypes = [
+export const tentTypes = [
   {
-    name: "Regular Ticket",
-    price: 799,
+    name: "2 person tent",
+    price: 299,
     id: 1,
   },
   {
-    name: "VIP Ticket",
-    price: 1299,
+    name: "3 person tent",
+    price: 399,
     id: 2,
   },
 ];

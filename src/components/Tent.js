@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { DispatchContext } from "@/contexts/basketContext";
 
-export default function Ticket({ id, name, price }) {
+export default function Tent({ id, name, price }) {
   const dispatch = useContext(DispatchContext);
   const [amount, setAmount] = useState(0);
 
@@ -9,7 +9,7 @@ export default function Ticket({ id, name, price }) {
     if (amount > 0) {
       setAmount(amount - 1);
       dispatch({
-        action: "REMOVE_TICKET",
+        action: "REMOVE_TENT",
         payload: {
           id: id,
         },
@@ -20,7 +20,7 @@ export default function Ticket({ id, name, price }) {
   function addOne() {
     setAmount(amount + 1);
     dispatch({
-      action: "ADD_TICKET",
+      action: "ADD_TENT",
       payload: {
         id: id,
       },

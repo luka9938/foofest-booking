@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { DispatchContext } from "@/contexts/buyerContext";
+import { DispatchContext } from "@/contexts/basketContext";
 
-export default function CartItem(props) {
+export default function CartTicket(props) {
   const dispatch = useContext(DispatchContext);
   return (
     <li>
