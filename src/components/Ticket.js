@@ -1,26 +1,39 @@
 import React, { useState, useContext } from "react";
 import { DispatchContext } from "@/contexts/buyerContext";
 
-export default function Ticket(props) {
+export default function Ticket({ id, name, price }) {
   const dispatch = useContext(DispatchContext);
-  function addToBasket() {
+  const [amount, setAmount] = useState(0);
+
+  function removeOne() {
+    if (amount > 0) {
+      setAmount(amount - 1);
+      dispatch({
+        action: "REMOVE_ONE_PRODUCT",
+        payload: {
+          id: id,
+        },
+      });
+    }
+  }
+
+  function addOne() {
+    setAmount(amount + 1);
     dispatch({
       action: "ADD_PRODUCT",
       payload: {
-        area: props.area,
-        available: props.available,
-        spots: props.spots,
+        id: id,
       },
     });
   }
+
   return (
     <div className="card">
-      <h2 className="h2">{props.area}</h2>
-      <p>{props.available} Available</p>
-      <p>{props.spots} Tickets</p>
-      <button className="button" onClick={addToBasket}>
-        Add to basket
-      </button>
+      <h2 className="h2">{name}</h2>
+      <p>{price},-</p>
+      <button onClick={removeOne}>[-]</button>
+      {amount}
+      <button onClick={addOne}>[+]</button>
     </div>
   );
 }

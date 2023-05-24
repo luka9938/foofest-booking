@@ -14,8 +14,8 @@
 
 .hero {
   display: flex;
-  min-height: 50vh;
-  padding: 5rem;
+  min-height: 20vh;
+  padding: 2rem;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -52,6 +52,14 @@
 .button {
   padding: 1rem 2rem;
   border: 2px solid blue;
+  width: fit-content;
+  align-self: center;
+  justify-self: center;
+}
+
+.button.disabled {
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .button:hover {

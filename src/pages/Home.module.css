@@ -9,8 +9,8 @@
 }
 
 .h1 {
-  font-size: 7.594rem;
-  line-height: 8rem;
+  font-size: 3rem;
+  line-height: 3rem;
   font-weight: bold;
 }
 
@@ -42,22 +42,7 @@
   grid-column: span 2;
 }
 
-.button {
-  position: fixed;
-  bottom: 0;
-  left: 47%;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  background-color: #0d2e4d;
-  padding: 15px 32px;
-  display: block;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-  margin: 2rem;
-  margin-top: 1rem;
-  text-decoration: none;
+.basket {
+  display: flex;
+  width: 30vw;
 }

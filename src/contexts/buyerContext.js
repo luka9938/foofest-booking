@@ -9,11 +9,9 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.action) {
-    case "EMPTY_BASKET":
-      return { ...state, basket: [] };
     case "REMOVE_ONE_PRODUCT":
       const nextBasket = state.basket.map((item) => {
-        if (item.area === action.payload.area) {
+        if (item.id === action.payload.id) {
           //found it
           const copy = { ...item };
           copy.amount--;
@@ -25,12 +23,10 @@ function reducer(state, action) {
       const finalBasket = nextBasket.filter((item) => item.amount > 0);
       return { ...state, basket: finalBasket };
     case "ADD_PRODUCT":
-      const exists = state.basket.find(
-        (item) => item.area === action.payload.area
-      );
+      const exists = state.basket.find((item) => item.id === action.payload.id);
       if (exists) {
         const nextBasket = state.basket.map((item) => {
-          if (item.area === action.payload.area) {
+          if (item.id === action.payload.id) {
             //found it
             const copy = { ...item };
             copy.amount++;
