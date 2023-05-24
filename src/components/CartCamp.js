@@ -6,7 +6,7 @@ export default function CartCamp(props) {
   return (
     <li>
       {props.area}
-      <p>{props.available} spots left</p>
+      <p>{props.available} spots left!</p>
     </li>
   );
 }

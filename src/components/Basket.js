@@ -12,7 +12,7 @@ function Basket() {
 
   // Calculate the total price
   const calculateTotalPrice = () => {
-    let totalPrice = 100;
+    let totalPrice = 99;
 
     // Calculate ticket prices
     state.ticketBasket.forEach((item) => {
@@ -43,7 +43,7 @@ function Basket() {
 
   const handleCheckboxChange = (e) => {
     const isChecked = e.target.checked;
-    const additionalCostValue = isChecked ? 250 : 0;
+    const additionalCostValue = isChecked ? 249 : 0;
     setAdditionalCost(additionalCostValue);
   };
 
@@ -85,10 +85,10 @@ function Basket() {
             onChange={handleCheckboxChange}
             checked={additionalCost > 0}
           />
-          Green camping (250,-)
+          Green camping (249,-)
         </label>
       </ul>
-      <p>Total Price: ${calculateTotalPrice()}</p>
+      <p>Total Price: {calculateTotalPrice()} Kr.</p>
       <Link
         href="./tents"
         className={`button ${isBasketEmpty() ? "disabled" : ""}`}
