@@ -40,7 +40,7 @@ function Basket() {
   return (
     <>
       <h3>Your Tickets</h3>
-      <ul>
+      <ul className="flex_box">
         {state.ticketBasket.map((item) => {
           const ticketType = ticketTypes.find((type) => type.id === item.id);
           return (
@@ -49,7 +49,7 @@ function Basket() {
         })}
       </ul>
       <h3>Your Tents</h3>
-      <ul>
+      <ul className="flex_box">
         {state.tentBasket.map((item) => {
           const tentType = tentTypes.find((type) => type.id === item.id);
           return (
@@ -63,7 +63,7 @@ function Basket() {
         })}
       </ul>
       <h3>Your Camps</h3>
-      <ul>
+      <ul className="flex_box">
         {state.campBasket.map((item) => {
           return <CartCamp key={item.id} {...item} />;
         })}

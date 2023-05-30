@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { useRouter } from "next/router";
-import styles from "./Home.module.css";
 import Ticket from "@/components/Ticket";
 import Tent from "@/components/Tent";
 import CampingSpot from "@/components/CampingSpot";
@@ -8,7 +7,6 @@ import IndexBasket from "@/components/IndexBasket";
 import { StoreContext } from "@/contexts/basketContext";
 import { ticketTypes } from "@/data/ticketTypes";
 import { tentTypes } from "@/data/tentTypes";
-import Link from "next/link";
 
 export default function Home({ data }) {
   const state = useContext(StoreContext);
@@ -25,37 +23,32 @@ export default function Home({ data }) {
   return (
     <>
       <div className="hero">
-        <h1 className={styles.h1}>CAMPING</h1>
+        <h1>CAMPING</h1>
       </div>
       <div className="container_container">
         <div className="container_box">
-          <div className={styles.content}>
-            <div className={styles.home}>
+          <div className="content">
+            <div className="divide">
               {ticketTypes.map((ticketType) => (
                 <Ticket key={ticketType.id} {...ticketType} />
               ))}
             </div>
-            <div className={styles.home}>
+            <div className="divide">
               {tentTypes.map((tentType) => (
                 <Tent key={tentType.id} {...tentType} />
               ))}
             </div>
-            <div className={styles.home}>
+            <div className="divide">
               {data.map((camp) => (
                 <CampingSpot key={camp.area} {...camp} />
               ))}
             </div>
           </div>
-          <div className={styles.home}>
-            <div className={styles.basket}>
-              <div className="basket">
-                <h3>Basket</h3>
-                <IndexBasket />
-                {isBasketEmpty() && (
-                  <p>Please select tickets, tents and camp.</p>
-                )}
-                {!isBasketEmpty() && <p>Proceed to Checkout</p>}
-              </div>
+          <div className="divide">
+            <div className="basket">
+              <IndexBasket />
+              {isBasketEmpty() && <p>Please select tickets, tents and camp.</p>}
+              {!isBasketEmpty() && <p>Proceed to Checkout</p>}
             </div>
           </div>
         </div>

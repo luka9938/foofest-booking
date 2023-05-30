@@ -2,8 +2,7 @@ import Head from "next/head";
 import styles from "./Checkout.module.css";
 import { useRouter } from "next/router";
 import { useRef } from "react";
-import { ticketTypes } from "@/data/ticketTypes";
-import { tentTypes } from "@/data/tentTypes";
+import CheckoutBasket from "@/components/CheckoutBasket";
 
 export default function Checkout() {
   const router = useRouter();
@@ -25,46 +24,18 @@ export default function Checkout() {
     submitToSupabase(formData);
   }
 
-  const ticketPrices = parsedContent.tickets
-    ? parsedContent.tickets.map((item) => {
-        const ticketType = ticketTypes.find((type) => type.id === item.id);
-        const totalPrice = ticketType.price * item.amount;
-        return {
-          type: "Ticket",
-          name: ticketType.name,
-          amount: item.amount,
-          price: ticketType.price,
-          totalPrice,
-        };
-      })
-    : [];
-
-  const tentPrices = parsedContent.tents
-    ? parsedContent.tents.map((item) => {
-        const tentType = tentTypes.find((type) => type.id === item.id);
-        const totalPrice = tentType.price * item.amount;
-        return {
-          type: "Tent",
-          name: tentType.name,
-          amount: item.amount,
-          price: tentType.price,
-          totalPrice,
-        };
-      })
-    : [];
-
   return (
     <>
       <Head>
         <title>Checkout | Boom Fest</title>
       </Head>
       <div className="hero">
-        <h1 className={styles.h1}>CAMPING</h1>
+        <h1>CAMPING</h1>
       </div>
-      <div className="container">
+      <div className="container_container">
         <div className="container_box">
-          <div className={styles.content}>
-            <div className={styles.Checkout}>
+          <div className="content">
+            <div className="divide">
               <form ref={formEl} onSubmit={submitted}>
                 <div className={styles.form}>
                   <label>
@@ -97,7 +68,7 @@ export default function Checkout() {
                   <label>
                     <input
                       placeholder="Address"
-                      type="address"
+                      type="text"
                       className="field"
                       name="address"
                       required
@@ -105,10 +76,10 @@ export default function Checkout() {
                   </label>
                   <label>
                     <input
-                      placeholder="Postal_code"
-                      type="postal_code"
+                      placeholder="Postal Code"
+                      type="text"
                       className="field"
-                      name="postal_code"
+                      name="postalCode"
                       required
                     />
                   </label>
@@ -122,34 +93,9 @@ export default function Checkout() {
               </form>
             </div>
           </div>
-          <div className={styles.checkout}>
-            <div className={styles.basket}>
-              {ticketPrices.length > 0 && (
-                <div>
-                  <h2>Your Tickets</h2>
-                  <ul>
-                    {ticketPrices.map((item, index) => (
-                      <li key={index}>
-                        {item.name} - Amount: {item.amount} - Price:{" "}
-                        {item.price} - Total: {item.totalPrice}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {tentPrices.length > 0 && (
-                <div>
-                  <h2>Your Tents</h2>
-                  <ul>
-                    {tentPrices.map((item, index) => (
-                      <li key={index}>
-                        {item.name} - Amount: {item.amount} - Price:{" "}
-                        {item.price} - Total: {item.totalPrice}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+          <div className="divide">
+            <div className="basket">
+              <CheckoutBasket />
             </div>
           </div>
         </div>

@@ -69,30 +69,36 @@ function IndexBasket() {
   };
 
   return (
-    <div>
+    <>
       <Basket />
-      <ul>
-        <label>
-          <input
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={additionalCost > 0}
-          />
-          Green camping (249,-)
-        </label>
+      <h3>Order Processing Fees</h3>
+      <ul className="flex_box">
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              onChange={handleCheckboxChange}
+              checked={additionalCost > 0}
+            />
+            Green camping
+          </label>
+        </li>
+        <li>249.00 kr.</li>
+        <li>booking fee</li>
+        <li> 99.00 kr.</li>
       </ul>
-      <ul>
-        <li>booking fee 99,-</li>
+      <ul className="flex_box subtotal">
+        <li>Subtotal:</li>
+        <li>{calculateTotalPrice().toFixed(2)} kr.</li>
       </ul>
-      <p>Total Price: {calculateTotalPrice().toFixed(2)} Kr.</p>
       <button
         onClick={handleStoreContent}
-        className={`button ${isBasketEmpty() ? "disabled" : ""}`}
+        className={`button button_big ${isBasketEmpty() ? "disabled" : ""}`}
         disabled={isBasketEmpty()}
       >
-        Continue
+        KØB BILLETTER
       </button>
-    </div>
+    </>
   );
 }
 
