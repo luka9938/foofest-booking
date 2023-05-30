@@ -48,6 +48,8 @@ function IndexBasket() {
     setAdditionalCost(additionalCostValue);
   };
 
+  const totalPrice = calculateTotalPrice();
+
   const handleStoreContent = () => {
     // Logic to store the content of the Basket component
     const contentToStore = {
@@ -55,6 +57,7 @@ function IndexBasket() {
       tents: state.tentBasket,
       camps: state.campBasket,
       additionalCost: additionalCost,
+      totalPrice: totalPrice,
     };
     setStoredContent(contentToStore);
 
