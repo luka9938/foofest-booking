@@ -4,7 +4,6 @@ import { ticketTypes } from "@/data/ticketTypes";
 import { tentTypes } from "@/data/tentTypes";
 import BasketCart from "./BasketCart";
 import CartCamp from "./CartCamp";
-import Link from "next/link";
 
 function Basket() {
   const state = useContext(StoreContext);
@@ -32,15 +31,6 @@ function Basket() {
     return totalPrice;
   };
 
-  // Check if all baskets are empty
-  const isBasketEmpty = () => {
-    return (
-      state.ticketBasket.length === 0 ||
-      state.tentBasket.length === 0 ||
-      state.campBasket.length === 0
-    );
-  };
-
   const handleCheckboxChange = (e) => {
     const isChecked = e.target.checked;
     const additionalCostValue = isChecked ? 249 : 0;
@@ -48,7 +38,7 @@ function Basket() {
   };
 
   return (
-    <div className="Basket">
+    <>
       <h2>Your Tickets</h2>
       <ul>
         {state.ticketBasket.map((item) => {
@@ -78,25 +68,7 @@ function Basket() {
           return <CartCamp key={item.id} {...item} />;
         })}
       </ul>
-      <ul>
-        <label>
-          <input
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={additionalCost > 0}
-          />
-          Green camping (249,-)
-        </label>
-      </ul>
-      <p>Total Price: {calculateTotalPrice()} Kr.</p>
-      <Link
-        href="./tents"
-        className={`button ${isBasketEmpty() ? "disabled" : ""}`}
-        disabled={isBasketEmpty()}
-      >
-        Continue
-      </Link>
-    </div>
+    </>
   );
 }
 
