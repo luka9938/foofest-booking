@@ -26,29 +26,83 @@ export default function Checkout() {
   return (
     <>
       <Head>
-        <title>Find buyer | EDC</title>
+        <title>Checkout | Boom Fest</title>
       </Head>
-      <div className="wrapper">
-        <div className={styles.content}></div>
+      <div className="hero">
+        <h1 className={styles.h1}>CAMPING</h1>
       </div>
-      <section>
-        <div className="kontakt">
-          <div className="container">
-            <div className="container_box">
-              <form ref={formEl} onSubmit={submitted} className="left">
-                {/* Form input fields */}
+      <div className="container">
+        <div className="container_box">
+          <div className={styles.content}>
+            <div className={styles.Checkout}>
+              <form ref={formEl} onSubmit={submitted}>
+                <div className={styles.form}>
+                  <label>
+                    <input
+                      placeholder="Name"
+                      type="text"
+                      className="field"
+                      name="name"
+                      required
+                    />
+                  </label>
+                  <label>
+                    <input
+                      placeholder="Email"
+                      type="email"
+                      className="field"
+                      name="email"
+                      required
+                    />
+                  </label>
+                  <label>
+                    <input
+                      placeholder="Phone"
+                      type="text"
+                      className="field"
+                      name="phone"
+                      required
+                    />
+                  </label>
+                  <label>
+                    <input
+                      placeholder="Address"
+                      type="address"
+                      className="field"
+                      name="address"
+                      required
+                    />
+                  </label>
+                  <label>
+                    <input
+                      placeholder="Postal_code"
+                      type="postal_code"
+                      className="field"
+                      name="postal_code"
+                      required
+                    />
+                  </label>
+                </div>
+                <button
+                  className="button"
+                  onClick={() => router.push("/confirmation")}
+                >
+                  Send
+                </button>
               </form>
-              <div className="right">
-                <h2>Your Stored Basket:</h2>
-                <pre>{JSON.stringify(parsedContent, null, 2)}</pre>
-                {parsedContent.tickets && (
-                  <div>{parsedContent.additionalCost}</div>
-                )}
-              </div>
+            </div>
+          </div>
+          <div className={styles.checkout}>
+            <div className={styles.basket}>
+              <h3>Basket</h3>
+              <pre>{JSON.stringify(parsedContent, null, 2)}</pre>
+              {parsedContent.tickets && (
+                <div>{parsedContent.additionalCost}</div>
+              )}
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

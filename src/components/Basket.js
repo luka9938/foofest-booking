@@ -39,7 +39,7 @@ function Basket() {
 
   return (
     <>
-      <h2>Your Tickets</h2>
+      <h3>Your Tickets</h3>
       <ul>
         {state.ticketBasket.map((item) => {
           const ticketType = ticketTypes.find((type) => type.id === item.id);
@@ -48,7 +48,7 @@ function Basket() {
           );
         })}
       </ul>
-      <h2>Your Tents</h2>
+      <h3>Your Tents</h3>
       <ul>
         {state.tentBasket.map((item) => {
           const tentType = tentTypes.find((type) => type.id === item.id);
@@ -62,7 +62,7 @@ function Basket() {
           );
         })}
       </ul>
-      <h2>Your Camps</h2>
+      <h3>Your Camps</h3>
       <ul>
         {state.campBasket.map((item) => {
           return <CartCamp key={item.id} {...item} />;

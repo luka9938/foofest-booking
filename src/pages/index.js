@@ -31,19 +31,16 @@ export default function Home({ data }) {
         <div className="container_box">
           <div className={styles.content}>
             <div className={styles.home}>
-              <h2>Tickets</h2>
               {ticketTypes.map((ticketType) => (
                 <Ticket key={ticketType.id} {...ticketType} />
               ))}
             </div>
             <div className={styles.home}>
-              <h2>Tents</h2>
               {tentTypes.map((tentType) => (
                 <Tent key={tentType.id} {...tentType} />
               ))}
             </div>
             <div className={styles.home}>
-              <h2>Camping Spots</h2>
               {data.map((camp) => (
                 <CampingSpot key={camp.area} {...camp} />
               ))}
@@ -52,14 +49,12 @@ export default function Home({ data }) {
           <div className={styles.home}>
             <div className={styles.basket}>
               <div className="basket">
-                <h2>Basket</h2>
+                <h3>Basket</h3>
                 <IndexBasket />
                 {isBasketEmpty() && (
                   <p>Please select tickets, tents and camp.</p>
                 )}
-                {!isBasketEmpty() && (
-                  <Link href="/checkout">Proceed to Checkout</Link>
-                )}
+                {!isBasketEmpty() && <p>Proceed to Checkout</p>}
               </div>
             </div>
           </div>
