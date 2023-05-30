@@ -94,7 +94,6 @@ export default function Checkout() {
           </div>
           <div className={styles.checkout}>
             <div className={styles.basket}>
-              <h3>Basket</h3>
               <pre>{JSON.stringify(parsedContent, null, 2)}</pre>
               {parsedContent.tickets && (
                 <div>{parsedContent.additionalCost}</div>
