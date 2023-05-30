@@ -2,6 +2,8 @@ import Head from "next/head";
 import styles from "./Checkout.module.css";
 import { useRouter } from "next/router";
 import { useRef } from "react";
+import { ticketTypes } from "@/data/ticketTypes";
+import { tentTypes } from "@/data/tentTypes";
 
 export default function Checkout() {
   const router = useRouter();
@@ -22,6 +24,34 @@ export default function Checkout() {
     };
     submitToSupabase(formData);
   }
+
+  const ticketPrices = parsedContent.tickets
+    ? parsedContent.tickets.map((item) => {
+        const ticketType = ticketTypes.find((type) => type.id === item.id);
+        const totalPrice = ticketType.price * item.amount;
+        return {
+          type: "Ticket",
+          name: ticketType.name,
+          amount: item.amount,
+          price: ticketType.price,
+          totalPrice,
+        };
+      })
+    : [];
+
+  const tentPrices = parsedContent.tents
+    ? parsedContent.tents.map((item) => {
+        const tentType = tentTypes.find((type) => type.id === item.id);
+        const totalPrice = tentType.price * item.amount;
+        return {
+          type: "Tent",
+          name: tentType.name,
+          amount: item.amount,
+          price: tentType.price,
+          totalPrice,
+        };
+      })
+    : [];
 
   return (
     <>
@@ -94,9 +124,31 @@ export default function Checkout() {
           </div>
           <div className={styles.checkout}>
             <div className={styles.basket}>
-              <pre>{JSON.stringify(parsedContent, null, 2)}</pre>
-              {parsedContent.tickets && (
-                <div>{parsedContent.additionalCost}</div>
+              {ticketPrices.length > 0 && (
+                <div>
+                  <h2>Your Tickets</h2>
+                  <ul>
+                    {ticketPrices.map((item, index) => (
+                      <li key={index}>
+                        {item.name} - Amount: {item.amount} - Price:{" "}
+                        {item.price} - Total: {item.totalPrice}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {tentPrices.length > 0 && (
+                <div>
+                  <h2>Your Tents</h2>
+                  <ul>
+                    {tentPrices.map((item, index) => (
+                      <li key={index}>
+                        {item.name} - Amount: {item.amount} - Price:{" "}
+                        {item.price} - Total: {item.totalPrice}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </div>
           </div>
