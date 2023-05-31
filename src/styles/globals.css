@@ -1,27 +1,60 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html {
+  background-color: #000;
+  color: var(--color-text);
+}
+
+:root {
+  --color-main: #000;
+  --color-main2: #25372d;
+  --color-main3: #642e24;
+  --color-headline: #ce5e4a;
+  --color-text: #fcf2c1;
+  --font-headline: "Germania One", cursive;
+  --font-headline2: "Pirata One", cursive;
+  --font-paragraph: "Sen", sans-serif;
+}
 
 * {
   box-sizing: border-box;
 }
 
 h1 {
+  font-family: var(--font-headline);
+  color: var(--color-headline);
   font-size: 3rem;
   line-height: 3rem;
   font-weight: bold;
 }
 
 h2 {
+  font-family: var(--font-headline2);
+  color: var(--color-text);
   font-size: 2rem;
   line-height: 4rem;
   font-weight: bold;
 }
 
 h3 {
+  font-family: var(--font-headline2);
+  color: var(--color-text);
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: bold;
+}
+
+li {
+  font-family: var(--font-paragraph);
+  color: var(--color-text);
+}
+
+p {
+  font-family: var(--font-paragraph);
+  color: var(--color-text);
+}
+
+a {
+  font-family: var(--font-headline);
+  color: var(--color-text);
 }
 
 li,
@@ -43,7 +76,7 @@ ul {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: azure;
+  background-color: #242424;
   width: 20vw;
   padding: 8vh 2vw;
 }
@@ -57,8 +90,7 @@ ul {
 .container_box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: #f3f7f7;
-  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.19);
+  background-color: #121212;
   border-radius: 8px;
 }
 
@@ -111,7 +143,7 @@ ul {
 }
 
 .subtotal {
-  border-top: 2px solid black;
+  border-top: 3px solid var(--color-headline);
 }
 
 .content {
@@ -119,9 +151,6 @@ ul {
   grid-column: span 2;
   padding: 1rem;
   background-color: var(--dusty-aqua-light);
-  border: 1px solid var(--dusty-aqua);
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.19);
 }
 
 .content :first-child {
@@ -138,4 +167,15 @@ ul {
   gap: 5%;
   justify-content: center;
   margin: 2%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  font-family: var(--font-headline);
+  color: var(--color-text);
 }

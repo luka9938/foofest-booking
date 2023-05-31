@@ -1,3 +1,40 @@
 .logo {
-  margin-top: 2rem;
+  position: absolute;
+  max-width: 12%;
+  max-height: 12%;
+  z-index: 5;
+  top: -37px;
+  right: 28px;
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  background-color: var(--color-main);
+  z-index: 99;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.nav_container {
+  display: block;
+  height: 60px;
+}
+
+.navbar .nav_container a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 3rem;
+  padding: 0.7rem;
+  line-height: 2rem;
+}
+
+.navbar .nav_container a:hover {
+  font-weight: bolder;
+  color: var(--color-headline);
 }
