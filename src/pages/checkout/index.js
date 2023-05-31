@@ -1,18 +1,28 @@
+import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import styles from "./Checkout.module.css";
-import { useRouter } from "next/router";
-import { useRef } from "react";
-import { createClient } from "@supabase/supabase-js"; // Import the Supabase client
 import CheckoutBasket from "@/components/CheckoutBasket";
 
 export default function Checkout() {
   const router = useRouter();
   const { storedContent } = router.query;
-
-  // Parse the storedContent if it's a JSON string
   const parsedContent = storedContent ? JSON.parse(storedContent) : {};
 
+  const [timer, setTimer] = useState(600); // 10 minutes in seconds
   const formEl = useRef(null);
+
+  useEffect(() => {
+    if (timer <= 0) {
+      // Redirect to another page when timer reaches 0
+      router.push("/");
+    } else {
+      const countdown = setTimeout(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+      return () => clearTimeout(countdown);
+    }
+  }, [timer]);
 
   async function submitToSupabase(formData) {
     const supabase = createClient(
@@ -48,7 +58,7 @@ export default function Checkout() {
         <title>Checkout | Boom Fest</title>
       </Head>
       <div className="hero">
-        <h1>CAMPING</h1>
+        <h1>Checkout</h1>
       </div>
       <div className="container_container">
         <div className="container_box">
@@ -110,6 +120,11 @@ export default function Checkout() {
           </div>
           <div className="divide">
             <div className="basket">
+              <h2 className={styles.h2}>
+                Time remaining: {Math.floor(timer / 60)}:
+                {timer % 60 < 10 ? "0" : ""}
+                {timer % 60}
+              </h2>
               <CheckoutBasket />
             </div>
           </div>
