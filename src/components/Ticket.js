@@ -29,11 +29,15 @@ export default function Ticket({ id, name, price }) {
 
   return (
     <div className="card">
-      <h2 className="h2">{name}</h2>
-      <p>{price},-</p>
-      <button onClick={removeOne}>[-]</button>
-      {amount}
-      <button onClick={addOne}>[+]</button>
+      <div className="card2">
+        <h2 className="h2">{name}</h2>
+        <p>{price},-</p>
+        <button onClick={removeOne}>[-]</button>
+        {amount}
+        <button onClick={addOne}>[+]</button>
+        <span className="bottom_key_1"></span>
+        <span className="bottom_key_2"></span>
+      </div>
     </div>
   );
 }

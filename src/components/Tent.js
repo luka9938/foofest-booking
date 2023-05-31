@@ -29,11 +29,17 @@ export default function Tent({ id, name, price }) {
 
   return (
     <div className="card">
-      <h2 className="h2">{name}</h2>
-      <p>{price},-</p>
-      <button onClick={removeOne}>[-]</button>
-      {amount}
-      <button onClick={addOne}>[+]</button>
+      <div className="card2">
+        <h2 className="h2">{name}</h2>
+        <p>{price},-</p>
+        <button className="tentbtn" onClick={removeOne}>
+          [-]
+        </button>
+        {amount}
+        <button className="tentbtn" onClick={addOne}>
+          [+]
+        </button>
+      </div>
     </div>
   );
 }
