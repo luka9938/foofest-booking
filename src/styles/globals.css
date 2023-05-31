@@ -173,6 +173,7 @@ ul {
 
 .tentbtn_text {
   font-size: 2rem;
+  font-family: var(--font-paragraph);
 }
 
 .button_text {
