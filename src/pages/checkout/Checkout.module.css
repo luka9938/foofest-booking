@@ -1,10 +1,3 @@
-.form {
-  margin-top: 36px;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-}
-
 .flexRow {
   display: flex;
   justify-content: space-between;
@@ -15,15 +8,13 @@
 }
 
 .form input {
-  height: 54px;
-  border-radius: 5px;
-  background: white;
-  margin-bottom: 15px;
-  border: none;
-  padding: 0 20px;
-  font-weight: 300;
-  font-size: 14px;
-  color: #4b4b4b;
+  background-color: #fafafa;
+  border: 1px solid #a9a9a9;
+  color: #000;
+  height: 46px;
+  padding: 10px;
+  width: 28vw;
+  font-family: var(--font-headline);
 }
 
 .form input:hover {
@@ -31,13 +22,139 @@
   box-shadow: 0px 0px 3px 0px white;
 }
 
-.field {
+.field_box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  margin: 0 10% 10% 10%;
+  gap: 3vw;
+}
+
+.field_box > label {
+  width: 50%;
+}
+
+.h2 {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
   background-color: #fafafa;
-  border: 1px solid #a9a9a9;
-  box-sizing: border-box;
-  color: #000;
-  height: 46px;
-  padding: 10px;
-  width: 45vw;
   font-family: var(--font-headline);
+  color: var(--color-main);
+  width: 30vw;
+  border-radius: 25px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  padding: 1rem;
+  height: fit-content;
+  background-color: #242424;
+  border-radius: 25px;
+  margin: 2%;
+}
+
+.basket {
+  background-color: #242424;
+  align-items: center;
+  border-radius: 25px;
+  margin: 2%;
+}
+
+.button {
+  display: block;
+  width: fill;
+}
+
+.hero_btn {
+  background-color: transparent;
+  border: 2px solid var(--color-headline);
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 1.25em 2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  font-size: 13px;
+  width: fill;
+}
+
+.hero_btn::before {
+  content: "";
+  width: 1.5625rem;
+  height: 2px;
+  background: var(--color-text);
+  top: 50%;
+  left: 1.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: 0.3s linear, width 0.3s linear;
+}
+
+.btn_text {
+  font-size: 1.125em;
+  line-height: 1.3333em;
+  padding-left: 2em;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text);
+  text-align: right;
+  font-family: var(--font-headline);
+}
+
+.bottom_key_1 {
+  height: 2px;
+  width: 1.5625rem;
+  right: 1.875rem;
+  bottom: -2px;
+  position: absolute;
+  background: #242424;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.bottom_key_2 {
+  height: 2px;
+  width: 0.625rem;
+  right: 0.625rem;
+  bottom: -2px;
+  position: absolute;
+  background: #242424;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.hero_btn:hover {
+  color: var(--color-text);
+  background: var(--color-headline);
+}
+
+.hero_btn:hover::before {
+  width: 0.9375rem;
+  background: var(--color-text);
+}
+
+.hero_btn:hover .btn_text {
+  color: var(--color-text);
+  padding-left: 1.5em;
+}
+
+.hero_btn:hover .bottom_key_1,
+.hero_btn:hover .bottom_key_2 {
+  right: 0;
+  width: 0;
 }

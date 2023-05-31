@@ -141,12 +141,6 @@ export default function CheckoutBasket() {
           </>
         )}
       </ul>
-      <button
-        className="button button_big"
-        onClick={() => router.push("/payment")}
-      >
-        BETAL FOR BILLETTER
-      </button>
     </>
   );
 }

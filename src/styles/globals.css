@@ -227,10 +227,18 @@ ul {
 
 .flex_box > li {
   width: 50%;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .flex_box > li:nth-child(even) {
   text-align: right;
+}
+
+.flex_box > li:nth-child(3) {
+  font-weight: lighter;
+  font-size: 1rem;
+  color: var(--color-headline);
 }
 
 .basket {
@@ -270,4 +278,14 @@ img {
 a {
   font-family: var(--font-headline);
   color: var(--color-text);
+}
+
+label {
+  font-family: var(--font-headline);
+  color: var(--color-text);
+}
+
+.subtotal li {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
