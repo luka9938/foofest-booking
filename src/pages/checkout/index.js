@@ -39,13 +39,20 @@ export default function Checkout() {
               <form ref={formEl} onSubmit={submitted}>
                 <div className={styles.form}>
                   <label>
+                    <input
+                      placeholder="Name"
+                      type="text"
+                      className={styles.field}
+                      name="name"
+                      required
+                    />
                     <input placeholder="Name" type="text" className="field" name="name" required />
                   </label>
                   <label>
                     <input
                       placeholder="Email"
                       type="email"
-                      className="field"
+                      className={styles.field}
                       name="email"
                       required
                     />
@@ -54,31 +61,29 @@ export default function Checkout() {
                     <input
                       placeholder="Phone"
                       type="text"
-                      className="field"
+                      className={styles.field}
                       name="phone"
                       required
                     />
                   </label>
-                  <div className={styles.flexRow}>
-                    <label>
-                      <input
-                        placeholder="Address"
-                        type="text"
-                        className="field"
-                        name="address"
-                        required
-                      />
-                    </label>
-                    <label>
-                      <input
-                        placeholder="Postal Code"
-                        type="text"
-                        className="field"
-                        name="postalCode"
-                        required
-                      />
-                    </label>
-                  </div>
+                  <label>
+                    <input
+                      placeholder="Address"
+                      type="text"
+                      className={styles.field}
+                      name="address"
+                      required
+                    />
+                  </label>
+                  <label>
+                    <input
+                      placeholder="Postal Code"
+                      type="text"
+                      className={styles.field}
+                      name="postalCode"
+                      required
+                    />
+                  </label>
                 </div>
                 <button className="button" onClick={() => router.push("/confirmation")}>
                   Send
