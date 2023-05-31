@@ -117,8 +117,10 @@ export default function Checkout() {
                   />
                 </label>
               </div>
-              <button className={`button ${styles.button}`} type="submit">
-                Send
+              <button className={styles.hero_btn} type="submit">
+                <span className={styles.btn_text}>BUY TICKETS</span>
+                <span className={styles.bottom_key_1}></span>
+                <span className={styles.bottom_key_2}></span>
               </button>
             </form>
           </div>
