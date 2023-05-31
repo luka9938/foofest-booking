@@ -44,7 +44,7 @@ export default function Tent({ id, name, price }) {
             <span className="bottom_key_2"></span>
           </button>
         </div>
-        <p className="price">{price},-</p>
+        <p className="price">{price} kr.</p>
       </div>
     </div>
   );
