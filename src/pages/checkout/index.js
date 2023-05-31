@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "./Checkout.module.css";
 import { useRouter } from "next/router";
 import { useRef } from "react";
+import { createClient } from "@supabase/supabase-js"; // Import the Supabase client
 import CheckoutBasket from "@/components/CheckoutBasket";
 
 export default function Checkout() {
@@ -13,12 +14,29 @@ export default function Checkout() {
 
   const formEl = useRef(null);
 
+  async function submitToSupabase(formData) {
+    const supabase = createClient(
+      "https://ilqkiywscxodpkjnsfkn.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlscWtpeXdzY3hvZHBram5zZmtuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUxMDQ4MjcsImV4cCI6MjAwMDY4MDgyN30.Dk8gReDA1S8WP8qNsxSAeJLd5j--rrmDKDXivQtvBKo"
+    );
+    const { data, error } = await supabase.from("buyers").insert([formData]); // Insert the form data into the "buyers" table
+    if (error) {
+      console.error("Error inserting data:", error);
+    } else {
+      console.log("Data inserted successfully:", data);
+      // Redirect to the confirmation page
+      router.push("/confirmation");
+    }
+  }
+
   function submitted(e) {
     e.preventDefault();
     const formData = {
       name: e.target.elements.name.value,
       email: e.target.elements.email.value,
       phone: e.target.elements.phone.value,
+      address: e.target.elements.address.value,
+      postalCode: e.target.elements.postalCode.value,
       basket: parsedContent,
     };
     submitToSupabase(formData);
@@ -46,7 +64,6 @@ export default function Checkout() {
                       name="name"
                       required
                     />
-                    <input placeholder="Name" type="text" className="field" name="name" required />
                   </label>
                   <label>
                     <input
@@ -85,7 +102,7 @@ export default function Checkout() {
                     />
                   </label>
                 </div>
-                <button className="button" onClick={() => router.push("/confirmation")}>
+                <button className="button" type="submit">
                   Send
                 </button>
               </form>
