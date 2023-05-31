@@ -58,68 +58,72 @@ export default function Checkout() {
         <title>Checkout | Boom Fest</title>
       </Head>
       <div className="hero">
-        <h1>Checkout</h1>
+        <h1>CHECKOUT</h1>
       </div>
       <div className="container_container">
         <div className="container_box">
-          <div className="content">
-            <div className="divide">
-              <form ref={formEl} onSubmit={submitted}>
-                <div className={styles.form}>
-                  <label>
-                    <input
-                      placeholder="Name"
-                      type="text"
-                      className={styles.field}
-                      name="name"
-                      required
-                    />
-                  </label>
-                  <label>
-                    <input
-                      placeholder="Email"
-                      type="email"
-                      className={styles.field}
-                      name="email"
-                      required
-                    />
-                  </label>
-                  <label>
-                    <input
-                      placeholder="Phone"
-                      type="text"
-                      className={styles.field}
-                      name="phone"
-                      required
-                    />
-                  </label>
-                  <label>
-                    <input
-                      placeholder="Address"
-                      type="text"
-                      className={styles.field}
-                      name="address"
-                      required
-                    />
-                  </label>
-                  <label>
-                    <input
-                      placeholder="Postal Code"
-                      type="text"
-                      className={styles.field}
-                      name="postalCode"
-                      required
-                    />
-                  </label>
-                </div>
-                <button className="button" type="submit">
-                  Send
-                </button>
-              </form>
-            </div>
+          <div className={styles.content}>
+            <h1>Hvem er billetterne til?</h1>
+            <form className={styles.form} ref={formEl} onSubmit={submitted}>
+              <div className={styles.field_box}>
+                <label>
+                  Name*
+                  <input
+                    placeholder="Name"
+                    type="text"
+                    className={styles.field}
+                    name="name"
+                    required
+                  />
+                </label>
+                <label>
+                  Email*
+                  <input
+                    placeholder="Email"
+                    type="email"
+                    className={styles.field}
+                    name="email"
+                    required
+                  />
+                </label>
+                <label>
+                  Phone number*
+                  <input
+                    placeholder="Phone"
+                    type="text"
+                    className={styles.field}
+                    name="phone"
+                    required
+                  />
+                </label>
+                <label>
+                  Address*
+                  <input
+                    placeholder="Address"
+                    type="text"
+                    className={styles.field}
+                    name="address"
+                    required
+                  />
+                </label>
+                <label>
+                  Postal code*
+                  <input
+                    placeholder="Postal Code"
+                    type="text"
+                    className={styles.field}
+                    name="postalCode"
+                    required
+                  />
+                </label>
+              </div>
+              <button className={`button ${styles.button}`} type="submit">
+                Send
+              </button>
+            </form>
           </div>
           <div className="divide">
-            <div className="basket">
+            <div className={`basket ${styles.basket}`}>
               <h2 className={styles.h2}>
                 Time remaining: {Math.floor(timer / 60)}:
                 {timer % 60 < 10 ? "0" : ""}
