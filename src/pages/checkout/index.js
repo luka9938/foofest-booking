@@ -87,22 +87,22 @@ export default function Checkout() {
                   />
                 </label>
                 <label>
-                  Phone number*
-                  <input
-                    placeholder="Phone"
-                    type="text"
-                    className={styles.field}
-                    name="phone"
-                    required
-                  />
-                </label>
-                <label>
                   Address*
                   <input
                     placeholder="Address"
                     type="text"
                     className={styles.field}
                     name="address"
+                    required
+                  />
+                </label>
+                <label>
+                  Phone number*
+                  <input
+                    placeholder="Phone"
+                    type="text"
+                    className={styles.field}
+                    name="phone"
                     required
                   />
                 </label>

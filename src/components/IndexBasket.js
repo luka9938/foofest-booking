@@ -96,7 +96,9 @@ function IndexBasket() {
         className={`button button_big ${isBasketEmpty() ? "disabled" : ""}`}
         disabled={isBasketEmpty()}
       >
-        KØB BILLETTER
+        <span className="button_text">GÅ TIL KASSSEN</span>
+        <span className="bottom_key_1"></span>
+        <span className="bottom_key_2"></span>
       </button>
     </>
   );

@@ -7,6 +7,7 @@ import IndexBasket from "@/components/IndexBasket";
 import { StoreContext } from "@/contexts/basketContext";
 import { ticketTypes } from "@/data/ticketTypes";
 import { tentTypes } from "@/data/tentTypes";
+import styles from "./Home.module.css";
 
 export default function Home({ data }) {
   const state = useContext(StoreContext);
@@ -28,17 +29,17 @@ export default function Home({ data }) {
       <div className="container_container">
         <div className="container_box">
           <div className="content">
-            <div className="divide">
+            <div className={`divide ${styles.divide}`}>
               {ticketTypes.map((ticketType) => (
                 <Ticket key={ticketType.id} {...ticketType} />
               ))}
             </div>
-            <div className="divide">
+            <div className={`divide ${styles.divide}`}>
               {tentTypes.map((tentType) => (
                 <Tent key={tentType.id} {...tentType} />
               ))}
             </div>
-            <div className="divide">
+            <div className={`divide ${styles.divide}`}>
               {data.map((camp) => (
                 <CampingSpot key={camp.area} {...camp} />
               ))}
