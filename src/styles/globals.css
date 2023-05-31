@@ -81,7 +81,7 @@ ul {
     var(--color-headline) 0%,
     var(--color-text) 100%
   );
-  border-radius: 20px;
+  border-radius: 25px;
   width: 20vw;
   height: 50vh;
   /* padding: 8vh 2vw; */
@@ -93,11 +93,12 @@ ul {
   height: 65vh;
   background-color: #242424;
   transition: all 0.2s;
+  border-radius: 25px;
 }
 
 .card2:hover {
   transform: scale(0.98);
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .card:hover {
@@ -137,7 +138,6 @@ ul {
   text-transform: none;
   transition: all 0.3s ease-in-out;
   user-select: none;
-  font-size: 13px;
   font-family: var(--font-headline);
 }
 
@@ -161,7 +161,7 @@ ul {
 
 .button_text,
 .tentbtn_text {
-  font-size: 1.125em;
+  font-size: 1rem;
   line-height: 1.3333em;
   display: block;
   text-align: left;
@@ -171,8 +171,13 @@ ul {
   color: var(--color-text);
 }
 
+.tentbtn_text {
+  font-size: 2rem;
+}
+
 .button_text {
   padding-left: 2em;
+  font-size: 1rem;
 }
 
 .bottom_key_1 {
@@ -319,4 +324,10 @@ label {
 .subtotal li {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.spots {
+  color: var(--color-headline);
+  font-family: var(--font-headline);
+  font-size: 2rem;
 }

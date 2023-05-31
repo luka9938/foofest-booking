@@ -75,12 +75,12 @@ function IndexBasket() {
       <ul className="flex_box">
         <li>
           <label>
+            Green camping
             <input
               type="checkbox"
               onChange={handleCheckboxChange}
               checked={additionalCost > 0}
             />
-            Green camping
           </label>
         </li>
         <li>249.00 kr.</li>
