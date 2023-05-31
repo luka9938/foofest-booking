@@ -44,10 +44,7 @@ function Dashboard() {
               <p>
                 Phone: <a href={`tel:${request.phone}`}>{request.phone}</a>
               </p>
-              <button
-                className="button"
-                onClick={() => handleDeleteRequest(request.id)}
-              >
+              <button className="button" onClick={() => handleDeleteRequest(request.id)}>
                 Delete
               </button>
             </li>

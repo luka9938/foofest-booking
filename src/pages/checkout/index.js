@@ -39,13 +39,7 @@ export default function Checkout() {
               <form ref={formEl} onSubmit={submitted}>
                 <div className={styles.form}>
                   <label>
-                    <input
-                      placeholder="Name"
-                      type="text"
-                      className="field"
-                      name="name"
-                      required
-                    />
+                    <input placeholder="Name" type="text" className="field" name="name" required />
                   </label>
                   <label>
                     <input
@@ -65,29 +59,28 @@ export default function Checkout() {
                       required
                     />
                   </label>
-                  <label>
-                    <input
-                      placeholder="Address"
-                      type="text"
-                      className="field"
-                      name="address"
-                      required
-                    />
-                  </label>
-                  <label>
-                    <input
-                      placeholder="Postal Code"
-                      type="text"
-                      className="field"
-                      name="postalCode"
-                      required
-                    />
-                  </label>
+                  <div className={styles.flexRow}>
+                    <label>
+                      <input
+                        placeholder="Address"
+                        type="text"
+                        className="field"
+                        name="address"
+                        required
+                      />
+                    </label>
+                    <label>
+                      <input
+                        placeholder="Postal Code"
+                        type="text"
+                        className="field"
+                        name="postalCode"
+                        required
+                      />
+                    </label>
+                  </div>
                 </div>
-                <button
-                  className="button"
-                  onClick={() => router.push("/confirmation")}
-                >
+                <button className="button" onClick={() => router.push("/confirmation")}>
                   Send
                 </button>
               </form>
