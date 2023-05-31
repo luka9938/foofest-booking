@@ -46,6 +46,7 @@ export default function Checkout() {
                       name="name"
                       required
                     />
+                    <input placeholder="Name" type="text" className="field" name="name" required />
                   </label>
                   <label>
                     <input
@@ -84,10 +85,7 @@ export default function Checkout() {
                     />
                   </label>
                 </div>
-                <button
-                  className="button"
-                  onClick={() => router.push("/confirmation")}
-                >
+                <button className="button" onClick={() => router.push("/confirmation")}>
                   Send
                 </button>
               </form>
