@@ -153,13 +153,6 @@ ul {
   background-color: var(--dusty-aqua-light);
 }
 
-.content :first-child {
-  margin-top: 0;
-}
-.content :last-child {
-  margin-bottom: 0;
-}
-
 .divide {
   display: flex;
   flex-direction: row;
