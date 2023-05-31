@@ -332,3 +332,43 @@ label {
   font-family: var(--font-headline);
   font-size: 2rem;
 }
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 0.8rem;
+  }
+  .container_box {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    height: 40vh;
+    width: 80vw;
+  }
+  .card2 {
+    height: 40vh;
+    width: 80vw;
+  }
+
+  .divide {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0;
+  }
+
+  .flex_box {
+    margin: 0 10%;
+    width: fill;
+  }
+
+  .basket {
+    width: fill;
+  }
+
+  .button_big {
+    width: fill;
+  }
+}
+
+@media (max-width: 480px) {
+}
