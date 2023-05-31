@@ -1,9 +1,18 @@
 import styles from "./Header.module.css";
+import Link from "next/link";
 
-export function Header({ data }) {
+export function Header() {
   return (
     <>
-      <h1>yo</h1>
+      <header className={styles.navbar}>
+        <div className={`${styles.container} ${styles.nav_container}`}>
+          <div className={styles.logo}>
+            <Link href="/" aria-label="Logo">
+              <img src="./logo.png" alt="Logo" />
+            </Link>
+          </div>
+        </div>
+      </header>
     </>
   );
 }
