@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { useRouter } from "next/router";
 import Ticket from "@/components/Ticket";
 import Tent from "@/components/Tent";
 import CampingSpot from "@/components/CampingSpot";
@@ -11,7 +10,6 @@ import styles from "./Home.module.css";
 
 export default function Home({ data }) {
   const state = useContext(StoreContext);
-  const { query } = useRouter();
 
   const isBasketEmpty = () => {
     return (

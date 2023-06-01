@@ -40,28 +40,24 @@ function Basket() {
   return (
     <>
       <h3>Your Tickets</h3>
-      <ul className="flex_box">
-        {state.ticketBasket.map((item) => {
-          const ticketType = ticketTypes.find((type) => type.id === item.id);
-          return (
-            <BasketCart key={item.id} {...ticketType} amount={item.amount} />
-          );
-        })}
-      </ul>
+      {state.ticketBasket.map((item) => {
+        const ticketType = ticketTypes.find((type) => type.id === item.id);
+        return (
+          <BasketCart key={item.id} {...ticketType} amount={item.amount} />
+        );
+      })}
       <h3>Your Tents</h3>
-      <ul className="flex_box">
-        {state.tentBasket.map((item) => {
-          const tentType = tentTypes.find((type) => type.id === item.id);
-          return (
-            <BasketCart
-              key={item.id}
-              {...tentType}
-              amount={item.amount}
-              ticketCount={state.ticketBasket.length}
-            />
-          );
-        })}
-      </ul>
+      {state.tentBasket.map((item) => {
+        const tentType = tentTypes.find((type) => type.id === item.id);
+        return (
+          <BasketCart
+            key={item.id}
+            {...tentType}
+            amount={item.amount}
+            ticketCount={state.ticketBasket.length}
+          />
+        );
+      })}
       <h3>Your Camps</h3>
       <ul className="flex_box">
         {state.campBasket.map((item) => {
