@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import styles from "./Checkout.module.css";
 import CheckoutBasket from "@/components/CheckoutBasket";
-
+import { createClient } from "@supabase/supabase-js";
 export default function Checkout() {
   const router = useRouter();
   const { storedContent } = router.query;
