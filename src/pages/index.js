@@ -24,7 +24,7 @@ export default function Home({ data }) {
   return (
     <>
       <div className="hero">
-        <h1>CAMPING</h1>
+        <h1>BOOKING</h1>
       </div>
       <div className="container_container">
         <div className="container_box">
