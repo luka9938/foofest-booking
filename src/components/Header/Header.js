@@ -7,7 +7,10 @@ export function Header() {
       <header className={styles.navbar}>
         <div className={`${styles.container} ${styles.nav_container}`}>
           <div className={styles.logo}>
-            <Link href="/" aria-label="Logo">
+            <Link
+              href="https://foofest-weebs-six.vercel.app/"
+              aria-label="Logo"
+            >
               <img src="./logo.png" alt="Logo" />
             </Link>
           </div>
