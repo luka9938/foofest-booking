@@ -86,6 +86,7 @@ ul {
   height: 35vh;
   /* padding: 8vh 2vw; */
   transition: all 0.3s;
+  margin: 5%;
 }
 
 .card2 {
@@ -300,10 +301,9 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 5%;
   justify-content: center;
-  margin: 2%;
   margin-bottom: 10vh;
+  height: fit-content;
 }
 
 img {
@@ -342,17 +342,16 @@ label {
     flex-direction: column;
   }
   .card {
-    height: 40vh;
+    height: 27vh;
     width: 80vw;
   }
   .card2 {
-    height: 40vh;
+    height: 27vh;
     width: 80vw;
   }
 
   .divide {
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-direction: row;
     margin: 0;
   }
 
@@ -363,6 +362,11 @@ label {
 
   .basket {
     width: fill;
+    margin: 2%;
+  }
+
+  .flex_box {
+    margin: 0;
   }
 
   .button_big {
