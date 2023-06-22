@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { DispatchContext } from "@/contexts/basketContext";
+import { tentTypes } from "@/data/tentTypes";
 
 export default function Ticket({ id, name, price }) {
   const dispatch = useContext(DispatchContext);
@@ -18,13 +19,21 @@ export default function Ticket({ id, name, price }) {
   }
 
   function addOne() {
-    setAmount(amount + 1);
-    dispatch({
-      action: "ADD_TICKET",
-      payload: {
-        id: id,
-      },
-    });
+    const ticketCapacity = tentTypes.find(
+      (tentType) => tentType.id === id
+    )?.capacity;
+
+    if (amount < ticketCapacity) {
+      setAmount(amount + 1);
+      dispatch({
+        action: "ADD_TICKET",
+        payload: {
+          id: id,
+        },
+      });
+    } else {
+      alert("Capacity exceeded");
+    }
   }
 
   return (
