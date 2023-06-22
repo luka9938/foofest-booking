@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { DispatchContext } from "@/contexts/basketContext";
 import { tentTypes } from "@/data/tentTypes";
 
-export default function Ticket({ id, name, price, tentAmount }) {
+export default function Ticket({ id, name, price, tentAmount, selectedTents }) {
   const dispatch = useContext(DispatchContext);
   const [amount, setAmount] = useState(0);
 
@@ -19,10 +19,10 @@ export default function Ticket({ id, name, price, tentAmount }) {
   }
 
   function addOne() {
-    const ticketCapacity = tentTypes.find(
-      (tentType) => tentType.id === id
-    )?.capacity;
-    const maxTickets = tentAmount * ticketCapacity;
+    const maxTickets = selectedTents.reduce(
+      (total, tent) => total + tent.capacity,
+      0
+    );
 
     if (amount < maxTickets) {
       setAmount(amount + 1);
@@ -33,7 +33,9 @@ export default function Ticket({ id, name, price, tentAmount }) {
         },
       });
     } else {
-      alert("You can't add more tickets than the tents capacity");
+      alert(
+        `You can't add more than ${maxTickets} tickets for the selected tents.`
+      );
     }
   }
 

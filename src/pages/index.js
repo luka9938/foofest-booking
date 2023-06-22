@@ -23,6 +23,14 @@ export default function Home({ data }) {
     return state.tentBasket.reduce((total, tent) => total + tent.amount, 0);
   };
 
+  const getSelectedTents = () => {
+    return state.tentBasket.map((tent) => ({
+      id: tent.id,
+      capacity:
+        tentTypes.find((tentType) => tentType.id === tent.id)?.capacity || 0,
+    }));
+  };
+
   return (
     <>
       <div className="hero">
@@ -36,7 +44,8 @@ export default function Home({ data }) {
                 <Ticket
                   key={ticketType.id}
                   {...ticketType}
-                  tentAmount={calculateTentAmount()} // Pass the tentAmount prop
+                  tentAmount={calculateTentAmount()}
+                  selectedTents={getSelectedTents()} // Pass the selectedTents array
                 />
               ))}
             </div>
