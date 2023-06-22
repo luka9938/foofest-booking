@@ -1,7 +1,3 @@
-/**
- * Valid estate types
- * @type {Array<{name: string, price: string, id: string}>}
- */
 export const ticketTypes = [
   {
     name: "Regular Ticket",
