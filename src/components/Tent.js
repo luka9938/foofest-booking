@@ -3,11 +3,11 @@ import { DispatchContext } from "@/contexts/basketContext";
 
 export default function Tent({ id, name, price }) {
   const dispatch = useContext(DispatchContext);
-  const [amount, setAmount] = useState(0);
+  const [tentAmount, setTentAmount] = useState(0);
 
   function removeOne() {
-    if (amount > 0) {
-      setAmount(amount - 1);
+    if (tentAmount > 0) {
+      setTentAmount(tentAmount - 1);
       dispatch({
         action: "REMOVE_TENT",
         payload: {
@@ -18,7 +18,7 @@ export default function Tent({ id, name, price }) {
   }
 
   function addOne() {
-    setAmount(amount + 1);
+    setTentAmount(tentAmount + 1);
     dispatch({
       action: "ADD_TENT",
       payload: {
@@ -37,7 +37,7 @@ export default function Tent({ id, name, price }) {
             <span className="bottom_key_1"></span>
             <span className="bottom_key_2"></span>
           </button>
-          <p className="amount">{amount}</p>
+          <p className="amount">{tentAmount}</p>
           <button className="tentbtn" onClick={removeOne}>
             <span className="tentbtn_text">-</span>
             <span className="bottom_key_1"></span>

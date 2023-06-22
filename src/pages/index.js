@@ -19,6 +19,10 @@ export default function Home({ data }) {
     );
   };
 
+  const calculateTentAmount = () => {
+    return state.tentBasket.reduce((total, tent) => total + tent.amount, 0);
+  };
+
   return (
     <>
       <div className="hero">
@@ -29,7 +33,11 @@ export default function Home({ data }) {
           <div className="content">
             <div className={`divide ${styles.divide}`}>
               {ticketTypes.map((ticketType) => (
-                <Ticket key={ticketType.id} {...ticketType} />
+                <Ticket
+                  key={ticketType.id}
+                  {...ticketType}
+                  tentAmount={calculateTentAmount()} // Pass the tentAmount prop
+                />
               ))}
             </div>
             <div className={`divide ${styles.divide}`}>
@@ -46,7 +54,9 @@ export default function Home({ data }) {
           <div className="divide">
             <div className="basket">
               <IndexBasket />
-              {isBasketEmpty() && <p>Please select tickets, tents and camp.</p>}
+              {isBasketEmpty() && (
+                <p>Please select tickets, tents, and camp.</p>
+              )}
               {!isBasketEmpty() && <p>Proceed to Checkout</p>}
             </div>
           </div>
