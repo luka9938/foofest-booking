@@ -81,16 +81,16 @@ ul {
     var(--color-headline) 0%,
     var(--color-text) 100%
   );
-  border-radius: 25px;
+  border-radius: 30px;
   width: 20vw;
-  height: 50vh;
+  height: 35vh;
   /* padding: 8vh 2vw; */
   transition: all 0.3s;
 }
 
 .card2 {
   width: 20vw;
-  height: 65vh;
+  height: 35vh;
   background-color: #242424;
   transition: all 0.2s;
   border-radius: 25px;
