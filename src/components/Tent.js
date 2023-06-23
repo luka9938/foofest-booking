@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { DispatchContext } from "@/contexts/basketContext";
 
-export default function Tent({ id, name, price, capacity }) {
+export default function Tent({ id, name, price }) {
   const dispatch = useContext(DispatchContext);
   const [tentAmount, setTentAmount] = useState(0);
 
@@ -45,7 +45,6 @@ export default function Tent({ id, name, price, capacity }) {
           </button>
         </div>
         <p className="price">{price} kr.</p>
-        <p className="capacity">Capacity: {capacity}</p>
       </div>
     </div>
   );
