@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import { DispatchContext } from "@/contexts/basketContext";
-import { tentTypes } from "@/data/tentTypes";
 
-export default function Ticket({ id, name, price, tentAmount, selectedTents }) {
+export default function Ticket({ id, name, price, selectedTents }) {
   const dispatch = useContext(DispatchContext);
   const [amount, setAmount] = useState(0);
 
